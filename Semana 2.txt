@@ -1,0 +1,19 @@
+1) Diferencie CI, CD e Deploy Contínuo
+
+A Integração Contínua (CI) visa automatizar a integração de modificações em códigos elaborados por diversos desenvolvedores em um repositório central, como por exemplo Gitlab ou Github. A cada commit, isto é, nova submissão de código, há um processo automatizado para a compilação do código, execução de testes e geração de um artefato da aplicação. O objetivo central é identificar problemas de integração o mais rápido possível, com possibilidade de correção com maior celeridade. A CI garante que o código da equipe está constantemente funcional e testado.
+
+A Entrega Contínua (CD) é o passo seguinte ao CI, estendendo a automação de modo a garantir que as alterações que passam pela pipeline CI com sucesso sejam enviadas automaticamente para o ambiente pré-produção (no MPPR, seria o ambiente de homologação). É possível estruturar testes automatizados adicionais, resultando ao final em um artefato pronto para ser implantado em produção a qualquer momento. Uma característica fundamental é que a entrega final das novas versões aos usuários é feita manualmente, de acordo com uma decisão humana, em geral da área de negócios.
+
+O Deploy Contínuo é o nível mais avançado de automação, tendo em vista que, em contraste com o CD, quando alterações de código passam pelas etapas de pipeline, são implantadas automaticamente em produção sem necessidade de intervenção humana. Desse modo, o deploy contínuo exige um alto grau de maturidade em termos de testagem e monitoramento, mas em contrapartida, permite um fluxo de entrega extremamente rápido.
+
+2) Explique o pipeline de entrega
+
+Um pipeline de entrega funciona como uma linha de montagem, sendo que, a cada etapa, há um incremento no valor do produto e uma checagem de sua qualidade. Ao final do pipeline, garante-se que o resultado seja funcional e confiável.
+O proncipal objetivo de um pipeline é automatizar as etapas, de modo a reduzir a chance de erros humanos, aumentando a velocidade das entregas, tornando o lançamento de produtos visível, repetível e rápido.
+
+
+3) Cite ao menos um padrão de release e sua utilidade
+
+A estratégia de release blue-green consiste em estabelecer dois ambientes de produção idênticos, denominados bllue e green. Além disso, há um roteador que direciona usuários para um desses ambientes.
+Inicialmente, todos os usuários são direcionados ao ambiente blue. Ao lançar uma nova versão de um sistema, as modificações são implementadas no ambiente green que, estando vazio, pode ser testado sem problemas. Quando há uma segurança nessa versão, o roteador redireciona os usuários ao ambiente green de forma automática, evitando indisponibilidade do sistema e permitindo que, em caso de erros, seja possível fazer o rollback sem dificuldades, apenas direcionando novamente os usuários ao ambiente blue, que é mantido por um período como uma rede de segurança.
+Em suma, a estratégia blue-green é uma abordagem  eficiente para lançamentos seguros e mantendo a disponbilidade contínua dos sistemas.
